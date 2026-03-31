@@ -44,7 +44,7 @@ Follow these steps to run the project locally:
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/bite-delight-app.git
+    git clone https://github.com/bk066/Food_restaurant_online.git
     cd premium-site
     ```
 
