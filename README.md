@@ -1,73 +1,108 @@
-# React + TypeScript + Vite
+# 🍔 Bite & Delight - Premium 3D Food Delivery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Bite & Delight** is a high-end, McDonald's-inspired digital dining platform built for a premium user experience. It features a stunning 3D-animated UI, real-time order tracking, and a secure Kitchen Command Center for staff.
 
-Currently, two official plugins are available:
+-----
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Key Features
 
-## React Compiler
+### 🛒 Customer Portal
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  * **3D Interactive Menu:** Perspective-based hover effects on food items for a modern feel.
+  * **McDelivery Clone Logic:** Choose between **Dine-in (Table Service)**, **Takeaway**, or **Home Delivery**.
+  * **Smart Bag (Cart):** Real-time price calculation and quantity management.
+  * **Live Order Tracking:** A dedicated 3D tracking screen that updates instantly when the kitchen changes the order status.
+  * **Cookie-Based Auth:** Remembers the user's name and phone number using browser cookies (No need to login every time).
 
-## Expanding the ESLint configuration
+### 👨‍🍳 Shop Staff Portal (Admin)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  * **Secure Access:** Protected by a PIN-locked gateway for authorized staff only.
+  * **Live Command Center:** Real-time sync with Firebase to show incoming orders without page refresh.
+  * **Status Management:** One-click status updates (Preparing → Out for Delivery → Completed).
+  * **Customer Data Collection:** Access to customer names, phone numbers, and delivery addresses for every order.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+-----
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Technology | Purpose |
+| :--- | :--- |
+| **React.js (Vite)** | Frontend Framework |
+| **Tailwind CSS** | Premium Styling & Responsiveness |
+| **Firebase Firestore** | NoSQL Real-time Database |
+| **Framer Motion** | 3D Animations & Staggered Transitions |
+| **React Router** | Multi-page Navigation (Customer vs Staff) |
+| **JS-Cookie** | Session Management |
+| **Lucide React** | High-quality Minimalist Icons |
+
+-----
+
+## 🚀 Installation & Setup
+
+Follow these steps to run the project locally:
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/your-username/bite-delight-app.git
+    cd premium-site
+    ```
+
+2.  **Install Dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Firebase:**
+    Create a `src/firebase.ts` file and add your Firebase credentials:
+
+    ```javascript
+    // src/firebase.ts
+    import { initializeApp } from "firebase/app";
+    import { getFirestore } from "firebase/firestore";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    export const db = getFirestore(app);
+    ```
+
+4.  **Run the Development Server:**
+
+    ```bash
+    npm run dev
+    ```
+
+-----
+
+## 📂 Project Structure
+
+```text
+premium-site/
+├── src/
+│   ├── firebase.ts      # Database connection
+│   ├── App.tsx          # Main Application Logic (Routes & UI)
+│   ├── index.css        # Tailwind & Global Styles
+│   └── main.tsx         # React entry point
+├── public/              # Static assets
+└── package.json         # Project dependencies
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+-----
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔐 Admin Access
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  * **Path:** `/shop-staff-only`
+  * **Default PIN:** `1234`
+
+## 👨‍💻 Developed By
+
+**Bharat Jalan** *Self-taught Web Developer & UI/UX Enthusiast* 
